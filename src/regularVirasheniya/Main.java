@@ -218,7 +218,17 @@ public class Main {
 //
 //        System.out.println(0b101 >> 1);
 //        System.out.println(5 >> 2);
-        System.out.println("Проверка изменений");
+//        System.out.println("Проверка изменений");
 
+        System.out.println(0b101 >> 1);
+//        System.out.println(Integer.toBinaryString(5 >> 1));
+//        System.out.println(Integer.toBinaryString(0b101 >> 1));
+        printBinaryString(5 >> 1);
+
+    }
+    public static void printBinaryString (int hexNumber){
+        String bits = Integer.toBinaryString(hexNumber);
+        String allBits = "00000000000000000000000000000000".substring(0,32 - bits.length()) + bits;
+        System.out.printf("%11d : %s%n", hexNumber, allBits);
     }
 }
