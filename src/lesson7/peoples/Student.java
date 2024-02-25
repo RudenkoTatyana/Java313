@@ -14,6 +14,6 @@ public class Student extends Human
     @Override
     public void info(){
         super.info();
-        System.out.print(this.speciality + " " + this.group + " " + this.rating);
+        System.out.print(this.speciality + " " + this.group + " " + this.rating + " ");
     }
 }
