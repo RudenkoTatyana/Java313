@@ -7,6 +7,10 @@ Shape geon[] = new Shape[N];
 geon[0] = new Line(5, "red", 1, 2, 3, 4);
 geon[1] = new Rectangle(2, 10, "yellow");
 geon[2] = new Triangle(3, "green", 10);
+ShapeInterface sh[] = new ShapeInterface[N];
+sh[0] = new Line(5,"red", 1, 2, 3, 4);
+sh[1] = new Rectangle(2, 10, "yellow");
+sh[2] = new Triangle(3, "green", 10);
 //        for (Shape g:geon) {
 //            g.draw();
 //            g.getSquare();
@@ -17,8 +21,12 @@ geon[2] = new Triangle(3, "green", 10);
                 double s = ((MathShape) geon[i]).getSquare();
                 System.out.println("Площадь: " + s);
             }
+            sh[i].info();
         }
     }
+}
+interface ShapeInterface{
+    void info();
 }
 interface MathShape{
     double getSquare();
@@ -38,11 +46,8 @@ abstract class Shape{
 
     abstract void draw();
 }
-class Line extends Shape{
+class Line extends Shape implements ShapeInterface{
     private int x1, x2, y1, y2;
-
-
-
 
     public Line(int width, String color, int x1, int x2, int y1, int y2) {
         super(width, color);
@@ -55,8 +60,11 @@ class Line extends Shape{
     void draw() {
         System.out.println("Рисование линии");
     }
+    public void info(){
+        System.out.println("Координаты линий: " + this.x1 + " " + this.x2 + " " + this.y1 + " " + this.y2 + "\n");
+    }
 }
-class Rectangle extends Shape implements MathShape{
+class Rectangle extends Shape implements MathShape, ShapeInterface{
     private int height;
 
     public Rectangle(int width, int height, String color) {
@@ -68,16 +76,24 @@ class Rectangle extends Shape implements MathShape{
     void draw() {
         System.out.println("Рисование прямоугольника");
     }
+
+    public void info() {
+        System.out.println("Ширина: " + getWidth() + "\nВысота: "+ this.height + "\n");
+    }
+
     public double getSquare(){
         return getWidth()*this.height;
     }
 }
-class Triangle extends Shape implements MathShape{
+class Triangle extends Shape implements MathShape, ShapeInterface{
     private int height;
 
     public Triangle(int width, String color, int height) {
         super(width, color);
         this.height = height;
+    }
+    public void info(){
+        System.out.println("Длина: " + getWidth() + "\nВысота: "+ this.height);
     }
 
     @Override
