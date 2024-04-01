@@ -15,10 +15,10 @@ public class Main {
         };
         int n1 = 7;
         boolean res = primeNumber.test(n1);
-        System.out.println(res);
+        System.out.println("Число 7 является простым числом: " + res);
         int n2 = 12;
         boolean res2 = primeNumber.test(n2);
-        System.out.println(res2);
+        System.out.println("Число 12 является простым числом: " + res2);
 
     }
 }
