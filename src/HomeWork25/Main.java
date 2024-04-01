@@ -1,33 +1,35 @@
 package HomeWork25;
 
+
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("Скорости транспортных средств: ");
-        Transport transport = Transport.CAR;
-        System.out.println(transport.TransportSpeed());
-        Transport transport1 = Transport.TRUCK;
-        System.out.println(transport1.TransportSpeed());
-        Transport transport2 = Transport.AIRPLANE;
-        System.out.println(transport2.TransportSpeed());
-        Transport transport3 = Transport.TRAIN;
-        System.out.println(transport3.TransportSpeed());
-        Transport transport4 = Transport.BOAT;
-        System.out.println(transport4.TransportSpeed());
+        System.out.println(Transport.CAR);
+        System.out.println(Transport.TRUCK);
+        System.out.println(Transport.AIRPLANE);
+        System.out.println(Transport.TRAIN);
+        System.out.println(Transport.BOAT);
     }
+
 }
 enum Transport{
-    CAR( 65),
-    TRUCK (55),
-    AIRPLANE( 600),
-    TRAIN(70),
-    BOAT( 22);
+    CAR("CAR", 65),
+    TRUCK("TRUCK", 55),
+    AIRPLANE("AIRPLANE", 600),
+    TRAIN("TRAIN", 70),
+    BOAT("BOAT", 22);
+    private String title;
+    private int speed;
 
-private int speed;
-Transport( int speed){
-    this.speed = speed;
-}
-public String TransportSpeed(){
-    return  " типичная скорость составляет " + this.speed + " миль в час.";
+    Transport(String title, int speed) {
+        this.title = title;
+        this.speed = speed;
+    }
+
+    @Override
+    public String toString() {
+        return this.title + " типичная скорость составляет " + this.speed + " миль в час.";
+    }
 }
 
-}
